@@ -2,7 +2,7 @@ import {Text, View, StatusBar, StyleSheet, Image} from 'react-native';
 import React, {useEffect} from 'react';
 import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
 import {Color, Fonts, Images} from '../constants';
-import {Display} from '../assets/untils';
+import {Display} from '../untils';
 
 const SplashScreen = ({navigation}) => {
   useEffect(() => {

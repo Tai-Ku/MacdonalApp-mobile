@@ -10,7 +10,7 @@ import {Color, Fonts} from '../constants';
 import {FlatList} from 'react-native-gesture-handler';
 import General from '../constants/General';
 import {WelcomeCard} from '../components';
-import {Display} from '../assets/untils';
+import {Display} from '../untils';
 import Sperator from '../components/Sperator';
 
 const pageStyle = isActive =>
@@ -32,7 +32,7 @@ const Pagination = ({index}) => {
   );
 };
 
-const WelComeScreen = () => {
+const WelComeScreen = ({navigation}) => {
   const [welcomeIndex, setWelcomeIndex] = useState(0);
   const welcomeList = useRef();
   const overViewRef = useRef(({changed}) => {
@@ -72,7 +72,7 @@ const WelComeScreen = () => {
         <TouchableOpacity
           style={styles.getStartedButton}
           activeOpacity={0.8}
-          onPress={() => null}>
+          onPress={() => navigation.navigate('Signin')}>
           <Text style={styles.getStartedButtonText}>Get Started</Text>
         </TouchableOpacity>
       ) : (

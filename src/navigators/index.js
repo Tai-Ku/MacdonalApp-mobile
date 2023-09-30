@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {SplashScreen, WelComeScreen} from '../screens';
+import {SignScreen, SplashScreen, WelComeScreen} from '../screens';
 
 const Stack = createStackNavigator();
 
@@ -13,6 +13,7 @@ const Navigators = () => {
         initialRouteName="Splash">
         <Stack.Screen name="Splash" component={SplashScreen} />
         <Stack.Screen name="Welcome" component={WelComeScreen} />
+        <Stack.Screen name="Signin" component={SignScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
