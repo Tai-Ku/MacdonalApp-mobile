@@ -1,10 +1,15 @@
 import {Text, View, StatusBar, StyleSheet, Image} from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
 import {Color, Fonts, Images} from '../constants';
 import {Display} from '../assets/untils';
 
-const SplashScreen = () => {
+const SplashScreen = ({navigation}) => {
+  useEffect(() => {
+    setTimeout(() => {
+      navigation.navigate('Welcome');
+    }, 300);
+  }, []);
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: Color.DEFAULT_GREEN}}>
       <View style={styles.container}>

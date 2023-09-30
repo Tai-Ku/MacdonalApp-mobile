@@ -8,9 +8,11 @@ const Stack = createStackNavigator();
 const Navigators = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen name="Welcome" component={WelComeScreen} />
+      <Stack.Navigator
+        screenOptions={{headerShown: false}}
+        initialRouteName="Splash">
         <Stack.Screen name="Splash" component={SplashScreen} />
+        <Stack.Screen name="Welcome" component={WelComeScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

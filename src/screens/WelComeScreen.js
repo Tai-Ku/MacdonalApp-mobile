@@ -68,20 +68,29 @@ const WelComeScreen = () => {
       <Sperator height={Display.setHeight(8)} />
       <Pagination index={welcomeIndex} />
       <Sperator height={Display.setHeight(8)} />
+      {welcomeIndex === 2 ? (
+        <TouchableOpacity
+          style={styles.getStartedButton}
+          activeOpacity={0.8}
+          onPress={() => null}>
+          <Text style={styles.getStartedButtonText}>Get Started</Text>
+        </TouchableOpacity>
+      ) : (
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={() => welcomeList.current.scrollToEnd()}>
+            <Text style={styles.buttonText}>Skip</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            activeOpacity={0.8}
+            style={styles.button}
+            onPress={() => pageScroll()}>
+            <Text style={styles.buttonText}>Next</Text>
+          </TouchableOpacity>
+        </View>
+      )}
 
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity
-          activeOpacity={0.8}
-          onPress={() => welcomeList.current.scrollToEnd()}>
-          <Text style={styles.buttonText}>Skip</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          activeOpacity={0.8}
-          style={styles.button}
-          onPress={() => pageScroll()}>
-          <Text style={styles.buttonText}>Next</Text>
-        </TouchableOpacity>
-      </View>
       <Sperator height={Display.setHeight(8)} />
     </View>
   );
@@ -123,6 +132,21 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: Fonts.POPPINS_BOLD,
     lineHeight: 16 * 1.4,
+  },
+  getStartedButton: {
+    backgroundColor: Color.DEFAULT_GREEN,
+    paddingVertical: 4,
+    paddingHorizontal: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 8,
+    elevation: 2,
+  },
+  getStartedButtonText: {
+    fontSize: 20,
+    color: Color.DEFAULT_WHITE,
+    lineHeight: 20 * 1.4,
+    fontFamily: Fonts.POPPINS_MEDIUM,
   },
 });
 export default WelComeScreen;
