@@ -2,40 +2,44 @@ import React, {useState} from 'react';
 import {
   View,
   Text,
-  StyleSheet,
   StatusBar,
+  StyleSheet,
+  TextInput,
   TouchableOpacity,
   Image,
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
-import {Color, Fonts, Images} from '../constants';
-import {TextInput} from 'react-native-gesture-handler';
+
 import Sperator from '../components/Sperator';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import {Color, Fonts, Images} from '../constants';
 import {Display} from '../untils';
-import {ToggleButton} from '../components';
-const SignScreen = ({navigation}) => {
+import {SafeAreaView} from 'react-native-safe-area-context';
+
+const SignUpScreen = ({navigation}) => {
   const [isPassWord, setIsPassWord] = useState(false);
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar
-        barStyle="dark-content"
-        backgroundColor={Color.DEFAULT_WHITE}
-        translucent
-      />
-      <Sperator height={2} />
-      <View style={styles.headerContainer}>
-        <Ionicons
-          name="chevron-back-outline"
-          size={30}
-          onPress={() => navigation.goBack()}
+      <View>
+        <StatusBar
+          barStyle="dark-content"
+          backgroundColor={Color.DEFAULT_WHITE}
+          translucent
         />
-        <Text style={styles.headerTitle}>Sign In</Text>
+        <Sperator height={2} />
+        <View style={styles.headerContainer}>
+          <Ionicons
+            name="chevron-back-outline"
+            size={30}
+            onPress={() => navigation.goBack()}
+          />
+          <Text style={styles.headerTitle}>Sign Up</Text>
+        </View>
       </View>
-      <Text style={styles.title}>Welcome</Text>
+      <Text style={styles.title}>Create Account</Text>
       <Text style={styles.content}>
         Enter your username and password, and enjoy ordering food
+        <Text></Text>
       </Text>
 
       <View style={styles.inputContainer}>
@@ -55,6 +59,25 @@ const SignScreen = ({navigation}) => {
         </View>
       </View>
       <Sperator height={15} />
+
+      <View style={styles.inputContainer}>
+        <View style={styles.inputSubContainer}>
+          <Feather
+            name="mail"
+            size={22}
+            color={Color.DEFAULT_GREY}
+            style={{marginRight: 10}}
+          />
+          <TextInput
+            placeholder="email"
+            placeholderTextColor={Color.DEFAULT_GREY}
+            selectionColor={Color.DEFAULT_GREY}
+            style={styles.inputText}
+          />
+        </View>
+      </View>
+      <Sperator height={15} />
+
       <View style={styles.inputContainer}>
         <View style={styles.inputSubContainer}>
           <Feather
@@ -80,28 +103,13 @@ const SignScreen = ({navigation}) => {
         </View>
       </View>
 
-      <Text></Text>
-      <View style={styles.forgotPasswordContainer}>
-        <View style={styles.toggleContainer}>
-          <ToggleButton size={0.5} />
-          <Text style={styles.rememberMeText}>Remember me</Text>
-        </View>
-        <Text
-          style={styles.forgotPasswordText}
-          onPress={() => navigation.navigate('ForgotPass')}>
-          Forgot Password
-        </Text>
-      </View>
       <TouchableOpacity
         // onPress={() => signIn()}
         style={styles.signinButton}
         activeOpacity={0.8}>
         <Text style={styles.signinButtonText}>Sign In</Text>
       </TouchableOpacity>
-      <View style={styles.signupContainer}>
-        <Text style={styles.accountText}>Don't have an account?</Text>
-        <Text onPress={() => navigation.navigate('SignUp')}>Sign Up</Text>
-      </View>
+      <Sperator height={15} />
       <Text style={styles.orText}>OR</Text>
       <TouchableOpacity style={styles.facebookButton}>
         <View style={styles.socialButtonsContainer}>
@@ -295,4 +303,4 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
 });
-export default SignScreen;
+export default SignUpScreen;

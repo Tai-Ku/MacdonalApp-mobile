@@ -1,130 +1,68 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {
-  View,
-  Text,
   StyleSheet,
+  View,
+  TextInput,
   StatusBar,
+  Text,
   TouchableOpacity,
-  Image,
 } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import Feather from 'react-native-vector-icons/Feather';
-import {Color, Fonts, Images} from '../constants';
-import {TextInput} from 'react-native-gesture-handler';
-import Sperator from '../components/Sperator';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import Sperator from '../components/Sperator';
+import Feather from 'react-native-vector-icons/Feather';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import {Color, Fonts} from '../constants';
 import {Display} from '../untils';
-import {ToggleButton} from '../components';
-const SignScreen = ({navigation}) => {
-  const [isPassWord, setIsPassWord] = useState(false);
+
+const ForgotPasswordScreen = ({navigation}) => {
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar
-        barStyle="dark-content"
-        backgroundColor={Color.DEFAULT_WHITE}
-        translucent
-      />
-      <Sperator height={2} />
-      <View style={styles.headerContainer}>
-        <Ionicons
-          name="chevron-back-outline"
-          size={30}
-          onPress={() => navigation.goBack()}
+    <SafeAreaView>
+      <View>
+        <StatusBar
+          barStyle="dark-content"
+          backgroundColor={Color.DEFAULT_WHITE}
+          translucent
         />
-        <Text style={styles.headerTitle}>Sign In</Text>
+        <Sperator height={2} />
+        <View style={styles.headerContainer}>
+          <Ionicons
+            name="chevron-back-outline"
+            size={30}
+            onPress={() => navigation.goBack()}
+          />
+          <Text style={styles.headerTitle}>Forget Password</Text>
+        </View>
       </View>
-      <Text style={styles.title}>Welcome</Text>
+      <Text style={styles.title}>Forget Password</Text>
       <Text style={styles.content}>
-        Enter your username and password, and enjoy ordering food
+        Please Enter Your Email So We Can Help You Recover Your Password
+        <Text></Text>
       </Text>
-
       <View style={styles.inputContainer}>
         <View style={styles.inputSubContainer}>
           <Feather
-            name="user"
+            name="mail"
             size={22}
             color={Color.DEFAULT_GREY}
             style={{marginRight: 10}}
           />
           <TextInput
-            placeholder="Username"
+            placeholder="email"
             placeholderTextColor={Color.DEFAULT_GREY}
             selectionColor={Color.DEFAULT_GREY}
             style={styles.inputText}
           />
         </View>
-      </View>
-      <Sperator height={15} />
-      <View style={styles.inputContainer}>
-        <View style={styles.inputSubContainer}>
-          <Feather
-            name="lock"
-            size={22}
-            color={Color.DEFAULT_GREY}
-            style={{marginRight: 10}}
-          />
-          <TextInput
-            secureTextEntry={isPassWord ? true : false}
-            placeholder="Password"
-            placeholderTextColor={Color.DEFAULT_GREY}
-            selectionColor={Color.DEFAULT_GREY}
-            style={styles.inputText}
-          />
-          <Feather
-            name={`${!isPassWord ? 'eye' : 'eye-off'}`}
-            size={22}
-            color={Color.DEFAULT_GREY}
-            style={{marginRight: 10}}
-            onPress={() => setIsPassWord(prev => !prev)}
-          />
-        </View>
-      </View>
-
-      <Text></Text>
-      <View style={styles.forgotPasswordContainer}>
-        <View style={styles.toggleContainer}>
-          <ToggleButton size={0.5} />
-          <Text style={styles.rememberMeText}>Remember me</Text>
-        </View>
-        <Text
-          style={styles.forgotPasswordText}
-          onPress={() => navigation.navigate('ForgotPass')}>
-          Forgot Password
-        </Text>
       </View>
       <TouchableOpacity
         // onPress={() => signIn()}
         style={styles.signinButton}
         activeOpacity={0.8}>
-        <Text style={styles.signinButtonText}>Sign In</Text>
-      </TouchableOpacity>
-      <View style={styles.signupContainer}>
-        <Text style={styles.accountText}>Don't have an account?</Text>
-        <Text onPress={() => navigation.navigate('SignUp')}>Sign Up</Text>
-      </View>
-      <Text style={styles.orText}>OR</Text>
-      <TouchableOpacity style={styles.facebookButton}>
-        <View style={styles.socialButtonsContainer}>
-          <View style={styles.signinButtonLogoContainer}>
-            <Image source={Images.FACEBOOK} style={styles.signinButtonLogo} />
-          </View>
-          <Text style={styles.socialSigninButtonText}>
-            Connect with Facebook
-          </Text>
-        </View>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.googleButton}>
-        <View style={styles.socialButtonsContainer}>
-          <View style={styles.signinButtonLogoContainer}>
-            <Image source={Images.GOOGLE} style={styles.signinButtonLogo} />
-          </View>
-          <Text style={styles.socialSigninButtonText}>Connect with Google</Text>
-        </View>
+        <Text style={styles.signinButtonText}>Reset Password</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
 };
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -295,4 +233,4 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
 });
-export default SignScreen;
+export default ForgotPasswordScreen;
